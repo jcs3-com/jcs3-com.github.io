@@ -1,0 +1,251 @@
+/* Books page — jcs3.com
+   ----------------------
+   Self-contained. Drop this on the page alongside books.html and books.js.
+   If your site has a global stylesheet, this only adds the .bt-* classes.
+*/
+
+:root {
+  --bt-bg: #fafaf7;
+  --bt-surface: #ffffff;
+  --bt-surface-2: #f1efe8;
+  --bt-text: #1a1a1a;
+  --bt-text-2: #5f5e5a;
+  --bt-text-3: #888780;
+  --bt-border: rgba(0, 0, 0, 0.10);
+  --bt-border-2: rgba(0, 0, 0, 0.18);
+  --bt-accent: #185fa5;
+  --bt-reading-bg: #E6F1FB; --bt-reading-fg: #0C447C;
+  --bt-read-bg:    #E1F5EE; --bt-read-fg:    #085041;
+  --bt-tbr-bg:     #F1EFE8; --bt-tbr-fg:     #444441;
+  --bt-dnf-bg:     #FCEBEB; --bt-dnf-fg:     #791F1F;
+  --bt-radius: 8px;
+  --bt-radius-lg: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bt-bg: #141413;
+    --bt-surface: #1c1c1b;
+    --bt-surface-2: #26262521;
+    --bt-text: #f5f4ee;
+    --bt-text-2: #b4b2a9;
+    --bt-text-3: #888780;
+    --bt-border: rgba(255, 255, 255, 0.10);
+    --bt-border-2: rgba(255, 255, 255, 0.18);
+    --bt-accent: #85B7EB;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bt-bg);
+  color: var(--bt-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 2rem 1.25rem 4rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.bt-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.bt-sub {
+  margin: 4px 0 0;
+  color: var(--bt-text-2);
+  font-size: 14px;
+}
+.bt-back {
+  color: var(--bt-text-2);
+  text-decoration: none;
+  font-size: 13px;
+}
+.bt-back:hover { color: var(--bt-text); }
+
+/* Stats */
+.bt-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+@media (max-width: 540px) {
+  .bt-stats { grid-template-columns: repeat(2, 1fr); }
+}
+.bt-stat {
+  background: var(--bt-surface-2);
+  border-radius: var(--bt-radius);
+  padding: 0.85rem 1rem;
+}
+.bt-stat-label {
+  font-size: 11px;
+  color: var(--bt-text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.bt-stat-val {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Tabs */
+.bt-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.bt-tab {
+  font: inherit;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: var(--bt-radius);
+  border: 0.5px solid var(--bt-border);
+  background: transparent;
+  color: var(--bt-text);
+  cursor: pointer;
+  transition: background 0.12s, border 0.12s;
+}
+.bt-tab:hover { background: var(--bt-surface-2); }
+.bt-tab.active {
+  background: var(--bt-surface-2);
+  border-color: var(--bt-border-2);
+  font-weight: 500;
+}
+
+/* Controls */
+.bt-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.bt-controls input,
+.bt-controls select {
+  font: inherit;
+  font-size: 14px;
+  padding: 7px 12px;
+  border-radius: var(--bt-radius);
+  border: 0.5px solid var(--bt-border);
+  background: var(--bt-surface);
+  color: var(--bt-text);
+}
+.bt-controls input { flex: 1; min-width: 200px; }
+
+/* Grid */
+.bt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+}
+.bt-card {
+  background: var(--bt-surface);
+  border: 0.5px solid var(--bt-border);
+  border-radius: var(--bt-radius-lg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.bt-card:hover {
+  border-color: var(--bt-border-2);
+  transform: translateY(-2px);
+}
+.bt-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: var(--bt-surface-2);
+  border-radius: var(--bt-radius);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--bt-text-3);
+  overflow: hidden;
+  text-align: center;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.bt-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bt-bk-title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 2px;
+}
+.bt-bk-author {
+  font-size: 12px;
+  color: var(--bt-text-2);
+  margin: 0 0 8px;
+}
+.bt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  gap: 6px;
+}
+.bt-pill {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.bt-pill.reading { background: var(--bt-reading-bg); color: var(--bt-reading-fg); }
+.bt-pill.read    { background: var(--bt-read-bg);    color: var(--bt-read-fg); }
+.bt-pill.tbr     { background: var(--bt-tbr-bg);     color: var(--bt-tbr-fg); }
+.bt-pill.dnf     { background: var(--bt-dnf-bg);     color: var(--bt-dnf-fg); }
+
+.bt-rating {
+  font-size: 12px;
+  color: var(--bt-text-2);
+  letter-spacing: 0.05em;
+}
+
+.bt-loading, .bt-empty, .bt-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--bt-text-2);
+  padding: 2rem 1rem;
+  font-size: 14px;
+}
+.bt-error { color: var(--bt-dnf-fg); }
+
+.bt-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid var(--bt-border);
+  color: var(--bt-text-3);
+  font-size: 12px;
+  text-align: center;
+}
+.bt-footer a { color: var(--bt-text-2); }
+
+/* Card click detail (optional modal-ish expansion using <details>) */
+.bt-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Books · jcs3</title>
+<meta name="description" content="A personal reading log." />
+<link rel="stylesheet" href="books.css" />
+</head>
+<body>
+
+<header class="bt-header">
+  <div>
+    <h1>Books</h1>
+    <p class="bt-sub">A personal reading log.</p>
+  </div>
+  <a href="/" class="bt-back" aria-label="Back to home">← jcs3.com</a>
+</header>
+
+<section class="bt-stats" id="bt-stats" aria-label="Reading stats">
+  <!-- Stats injected by JS -->
+</section>
+
+<nav class="bt-tabs" id="bt-tabs" aria-label="Filter by status">
+  <button class="bt-tab active" data-f="all">All</button>
+  <button class="bt-tab" data-f="reading">Reading</button>
+  <button class="bt-tab" data-f="read">Read</button>
+  <button class="bt-tab" data-f="tbr">To read</button>
+  <button class="bt-tab" data-f="dnf">DNF</button>
+</nav>
+
+<div class="bt-controls">
+  <input
+    type="search"
+    id="bt-search"
+    placeholder="Search title or author…"
+    aria-label="Search books"
+  />
+  <select id="bt-sort" aria-label="Sort books">
+    <option value="date-desc">Newest finished first</option>
+    <option value="date-asc">Oldest finished first</option>
+    <option value="rating-desc">Highest rated</option>
+    <option value="title">Title A–Z</option>
+    <option value="author">Author A–Z</option>
+  </select>
+</div>
+
+<main id="bt-grid" class="bt-grid" aria-live="polite">
+  <p class="bt-loading">Loading books…</p>
+</main>
+
+<footer class="bt-footer">
+  <p>Data: <a href="https://docs.google.com" target="_blank" rel="noopener">Google Sheets</a> · Covers: <a href="https://openlibrary.org" target="_blank" rel="noopener">Open Library</a></p>
+</footer>
+
+<script src="books.js"></script>
+</body>
+</html>

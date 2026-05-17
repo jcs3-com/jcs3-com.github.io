@@ -26,7 +26,7 @@ const SHEET_ID = "1KKIvqsmxjh0s8uXwYYEeD6C_5sq7xRdEpc0FofPPHTM";
 const SHEET_NAME = "Sheet1";
 
 // Use the gviz endpoint — more reliable than publish-to-web CSV link.
-const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_NAME)}`;
+const CSV_URL = `https://docs.google.com/spreadsheets/d/1KKIvqsmxjh0s8uXwYYEeD6C_5sq7xRdEpc0FofPPHTM/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(Sheet1)}`;
 
 // ---- State ----
 let allBooks = [];

@@ -1,12 +1,28 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SV2EYVGVQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
 
-  gtag('config', 'G-8SV2EYVGVQ');
-</script>
-<script>
-  window.location.href = "https://calendly.com/james-xcelhr/30min";
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SV2EYVGVQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    gtag('js', new Date());
+    gtag('config', 'G-8SV2EYVGVQ');
+  </script>
+
+  <!-- Redirect Script -->
+  <script>
+    setTimeout(function() {
+      window.location.href = "https://calendly.com/james-xcelhr/30min";
+    }, 300); // slight delay ensures GA fires
+  </script>
+
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
